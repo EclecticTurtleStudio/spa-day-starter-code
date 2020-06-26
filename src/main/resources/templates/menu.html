@@ -14,6 +14,27 @@
     <p th:text="${manipedi}">Oops. Information missing.</p>
 </div>
 <div id = "servicesMenu">
+    <table>
+        <thead>
+        <tr>
+            <th>Facial</th>
+        </tr>
+        </thead>
+        <tr><p>The facial treatments below are recommended by our aestheticians for your given skin type.</p></tr>
+        <tr th:each="facial : ${facials}">
+            <td th:text="${facial}"></td>
+        </tr>
+    </table>
+
+    <div id="manicure" th:if='${manipedi.equals("manicure")}'>
+        <h3>Manicure</h3>
+        <p th:replace="fragments :: manicureDescription"></p>
+    </div>
+
+    <div id="pedicure" th:if='${manipedi.equals("pedicure")}'>
+        <h3>Pedicure</h3>
+        <p th:replace="fragments :: pedicureDescription"></p>
+    </div>
 </div>
 </body>
 </html>
